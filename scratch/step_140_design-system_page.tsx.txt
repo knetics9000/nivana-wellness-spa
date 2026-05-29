@@ -1,0 +1,8 @@
+=== STEP 140 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\design-system\\page.tsx ===
+Instruction: "Replace the key 'interactions' with 'drugInteractions' in the mock safetyInfo object passed to SafetyModal."
+StartLine: 260
+EndLine: 275
+TargetContent:
+"          interactions: [\n            \"Oral medications: delayed gastric emptying can alter oral absorption speed\",\n            \"Insulin secretagogues: increased risk of clinical hypoglycemia\"\n          ]"
+ReplacementContent:
+"          drugInteractions: [\n            \"Oral medications: delayed gastric emptying can alter oral absorption speed\",\n            \"Insulin secretagogues: increased risk of clinical hypoglycemia\"\n          ]"

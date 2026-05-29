@@ -1,0 +1,8 @@
+=== STEP 1655 (replace_file_content) targeting c:/Users/WOLF/Documents/Peptide Wellness Project/src/app/page.tsx ===
+Instruction: "Remove the -z-10 class from the background video wrapper."
+StartLine: 715
+EndLine: 727
+TargetContent:
+"        {/* Background Loop Video */}\n        <div className=\"absolute inset-0 w-full h-full -z-10 overflow-hidden opacity-15\">\n          <video \n            autoPlay \n            loop \n            muted \n            playsInline\n            className=\"w-full h-full object-cover grayscale\"\n            src=\"/videos/peptide-skin.mp4\"\n          />\n          <div className=\"absolute inset-0 bg-[#0A0A0C]/80\" />\n        </div>"
+ReplacementContent:
+"        {/* Background Loop Video */}\n        <div className=\"absolute inset-0 w-full h-full overflow-hidden opacity-15 pointer-events-none\">\n          <video \n            autoPlay \n            loop \n            muted \n            playsInline\n            className=\"w-full h-full object-cover grayscale\"\n            src=\"/videos/peptide-skin.mp4\"\n          />\n          <div className=\"absolute inset-0 bg-[#0A0A0C]/80\" />\n        </div>"

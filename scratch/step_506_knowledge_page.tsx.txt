@@ -1,0 +1,2 @@
+=== STEP 506 (multi_replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\knowledge\\page.tsx ===
+Instruction: "Replace Nivana Medical Journal header banner and search placeholder with PharmacellRx Sourcing & Science Journal equivalents."

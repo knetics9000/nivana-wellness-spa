@@ -1,6 +1,6 @@
-# Nivana Wellness Spa — Digital Storefront & Knowledge Base
+# Valera Wellness Spa — Digital Storefront & Knowledge Base
 
-Nivana Wellness Spa is a premium, high-converting customer-facing telehealth portal and peptide knowledge base. Built using Next.js 16 (App Router), TypeScript, and Tailwind CSS v4, it features a Spa-Luxe aesthetic (espresso, warm cream, gold accents, and ivory) combined with high-integrity medical positioning.
+Valera Wellness Spa is a premium, high-converting customer-facing telehealth portal and peptide knowledge base. Built using Next.js 16 (App Router), TypeScript, and Tailwind CSS v4, it features a Spa-Luxe aesthetic (espresso, warm cream, gold accents, and ivory) combined with high-integrity medical positioning.
 
 ---
 

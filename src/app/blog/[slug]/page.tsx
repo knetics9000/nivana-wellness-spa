@@ -31,7 +31,7 @@ export default function BlogDetailPage({ params }: PageProps) {
       // Handle Headers inside post content
       if (trimmed.startsWith("### ")) {
         return (
-          <h3 key={idx} className="font-serif text-xl sm:text-2xl font-bold text-[#2A2520] mt-8 mb-4">
+          <h3 key={idx} className="font-serif text-xl sm:text-2xl font-light text-white mt-8 mb-4">
             {trimmed.replace("### ", "")}
           </h3>
         );
@@ -41,9 +41,9 @@ export default function BlogDetailPage({ params }: PageProps) {
       if (trimmed.startsWith("* ") || trimmed.startsWith("- ")) {
         const lines = trimmed.split("\n");
         return (
-          <ul key={idx} className="list-disc pl-5 my-4 space-y-2 text-xs sm:text-sm text-[#2A2520]/80">
+          <ul key={idx} className="list-disc pl-5 my-4 space-y-2 text-xs sm:text-sm text-white/80">
             {lines.map((line, i) => (
-              <li key={i} className="font-sans leading-relaxed">
+              <li key={i} className="font-sans leading-relaxed font-light">
                 {line.replace(/^[\*\-]\s+/, "")}
               </li>
             ))}
@@ -52,7 +52,7 @@ export default function BlogDetailPage({ params }: PageProps) {
       }
 
       return (
-        <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed text-[#2A2520]/80 my-4 font-sans">
+        <p key={idx} className="text-xs sm:text-sm md:text-base leading-relaxed text-white/85 my-4 font-sans font-light">
           {trimmed}
         </p>
       );
@@ -60,53 +60,69 @@ export default function BlogDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="bg-[#F8F4EC] min-h-screen pb-24 font-sans text-[#2A2520]">
+    <div className="min-h-screen pb-24 font-sans text-white relative z-0">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full -z-20 bg-[#0B0A09]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-15"
+        >
+          <source src="/videos/woman_serum_ritual.mp4" type="video/mp4" />
+        </video>
+      </div>
+      {/* Soft color overlays */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0A09]/95 via-[#0B0A09]/90 to-[#E8B29A]/10 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B0A09]/40 to-[#0B0A09] -z-10"></div>
+
       {/* Top back button */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative z-10">
         <Link 
           href="/blog" 
-          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#8E7449] hover:text-[#B89968] transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-white hover:text-[#E8B29A] transition-colors underline underline-offset-4 decoration-[#E8B29A] decoration-2"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Blog
         </Link>
       </div>
 
       {/* Main Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-12 animate-fade-up relative z-10">
         {/* Left Column: Post Body */}
         <div className="lg:col-span-8 space-y-6">
-          <div className="space-y-4 pb-6 border-b border-[#E2D9C7]/50">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#B89968] bg-[#B89968]/10 px-2.5 py-0.5 rounded-full inline-block">
+          <div className="space-y-4 pb-6 border-b border-white/10">
+            <span className="text-[9px] font-bold uppercase tracking-wider text-[#E8B29A] bg-[#E8B29A]/10 border border-[#E8B29A]/20 px-2.5 py-1 rounded-full inline-block font-sans">
               {post.category}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2A2520] leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
               {post.title}
             </h1>
-            <div className="flex gap-6 items-center text-xs text-[#2A2520]/50 font-sans">
+            <div className="flex gap-6 items-center text-xs text-white/40 font-mono">
               <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.readTime} read</span>
               <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> Published: {post.date}</span>
             </div>
           </div>
 
-          <div className="prose max-w-none text-[#2A2520]">
+          <div className="prose max-w-none text-white/90">
             {renderParagraphs(post.content)}
           </div>
         </div>
 
         {/* Right Column: Sidebar */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="space-y-6 sticky top-24">
+          <div className="space-y-6 lg:sticky lg:top-28">
             
             {/* Consultation Pitch */}
-            <div className="bg-[#EFE8DA]/60 border border-[#E2D9C7] rounded-3xl p-6 space-y-4 shadow-sm">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B89968] block">Nivana Telehealth</span>
-              <h3 className="font-serif text-lg font-bold text-[#2A2520]">Begin your wellness journey</h3>
-              <p className="text-xs text-[#2A2520]/75 leading-relaxed font-sans">
+            <div className="glass-panel-dark rounded-3xl p-6 space-y-4 shadow-lg">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 font-bold block">VALARA TELEHEALTH</span>
+              <h3 className="font-serif text-lg font-semibold text-white">Begin your wellness journey</h3>
+              <p className="text-xs text-white/80 leading-relaxed font-sans font-light">
                 Our physicians specialize in targeted peptide therapies matching your biology. Fast 5-minute online screening.
               </p>
               <Link
                 href="/intake"
-                className="w-full text-center block py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#B89968] text-[#F8F4EC] hover:bg-[#8E7449] transition-all flex items-center justify-center gap-1 shadow-sm"
+                className="w-full text-center block py-3.5 bg-[#E8B29A] text-[#0B0A09] hover:bg-white hover:text-[#0B0A09] transition-all duration-300 rounded-full text-xs font-bold uppercase tracking-widest shadow-md flex items-center justify-center gap-1.5 font-mono"
               >
                 Get Started <ArrowRight className="h-4 w-4" />
               </Link>
@@ -114,18 +130,18 @@ export default function BlogDetailPage({ params }: PageProps) {
 
             {/* Other Blog Posts */}
             {otherPosts.length > 0 && (
-              <div className="border border-[#E2D9C7] rounded-3xl p-6 bg-[#F8F4EC] space-y-4">
-                <h3 className="font-serif text-lg font-bold text-[#2A2520] border-b border-[#E2D9C7]/50 pb-2">More from Blog</h3>
+              <div className="glass-panel-dark rounded-3xl p-6 shadow-lg space-y-4">
+                <h3 className="font-serif text-lg font-semibold text-white border-b border-white/10 pb-2">More from Blog</h3>
                 <div className="space-y-4">
                   {otherPosts.map((op) => (
                     <div key={op.slug} className="space-y-1">
-                      <span className="text-[9px] uppercase tracking-wider text-[#B89968] font-bold">{op.category}</span>
-                      <h4 className="font-serif text-sm font-bold text-[#2A2520] hover:text-[#B89968] transition-colors leading-tight">
+                      <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold block mb-1 font-sans">{op.category}</span>
+                      <h4 className="font-serif text-sm font-semibold text-white hover:text-[#E8B29A] transition-colors leading-tight">
                         <Link href={`/blog/${op.slug}`}>
                           {op.title}
                         </Link>
                       </h4>
-                      <span className="text-[10px] text-[#2A2520]/50 block font-sans">{op.date}</span>
+                      <span className="text-[10px] text-white/40 block font-mono">{op.date}</span>
                     </div>
                   ))}
                 </div>

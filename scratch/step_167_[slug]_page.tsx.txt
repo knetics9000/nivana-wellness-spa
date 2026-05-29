@@ -1,0 +1,8 @@
+=== STEP 167 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\treatments\\[slug]\\page.tsx ===
+Instruction: "Add ChevronRight to the lucide-react imports block."
+StartLine: 5
+EndLine: 20
+TargetContent:
+"import { \n  ArrowLeft, \n  ShieldAlert, \n  ArrowRight, \n  CheckCircle2, \n  AlertOctagon, \n  HelpCircle, \n  Sparkles,\n  Info,\n  Calendar,\n  Layers,\n  ThermometerSnowflake\n} from \"lucide-react\";"
+ReplacementContent:
+"import { \n  ArrowLeft, \n  ShieldAlert, \n  ArrowRight, \n  CheckCircle2, \n  AlertOctagon, \n  HelpCircle, \n  Sparkles,\n  Info,\n  Calendar,\n  Layers,\n  ThermometerSnowflake,\n  ChevronRight\n} from \"lucide-react\";"

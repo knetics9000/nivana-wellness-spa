@@ -1,0 +1,8 @@
+=== STEP 1162 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\intake\\page.tsx ===
+Instruction: "Change placeholder value to properly escaped JSX expression to fix build error."
+StartLine: 316
+EndLine: 322
+TargetContent:
+"                    <input\n                      type=\"text\"\n                      placeholder=\"e.g. 5'10\\\"\"\n                      {...register(\"height\")}\n                      className=\"w-full px-4 py-3 bg-[#0A0A0A] border border-white/10 rounded text-xs placeholder-white/30 text-white focus:outline-none focus:border-[#C8D8E8] focus:ring-1 focus:ring-[#C8D8E8] font-mono\"\n                    />"
+ReplacementContent:
+"                    <input\n                      type=\"text\"\n                      placeholder={\"e.g. 5'10\\\"\"}\n                      {...register(\"height\")}\n                      className=\"w-full px-4 py-3 bg-[#0A0A0A] border border-white/10 rounded text-xs placeholder-white/30 text-white focus:outline-none focus:border-[#C8D8E8] focus:ring-1 focus:ring-[#C8D8E8] font-mono\"\n                    />"

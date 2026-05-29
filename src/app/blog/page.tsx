@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { BookOpen, Clock, Calendar, ChevronRight } from "lucide-react";
+import { Clock, ChevronRight } from "lucide-react";
 
 export interface BlogPost {
   slug: string;
@@ -84,49 +84,65 @@ Ensure you consume adequate minerals alongside filtered water to support cardiov
 
 export default function BlogIndexPage() {
   return (
-    <div className="bg-[#F8F4EC] text-[#2A2520] font-sans pb-24">
+    <div className="min-h-screen pb-24 font-sans text-white relative z-0">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full -z-20 bg-[#0B0A09]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-15"
+        >
+          <source src="/videos/woman_serum_ritual.mp4" type="video/mp4" />
+        </video>
+      </div>
+      {/* Soft color overlays */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0A09]/95 via-[#0B0A09]/90 to-[#E8B29A]/10 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B0A09]/40 to-[#0B0A09] -z-10"></div>
+
       {/* Hero Header */}
-      <section className="bg-[#EFE8DA] py-16 border-b border-[#E2D9C7] text-[#2A2520]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#B89968]">The Nivana Journal</span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight">Nivana Blog</h1>
-          <p className="text-sm sm:text-base text-[#2A2520]/75 max-w-xl mx-auto leading-relaxed">
+      <section className="relative py-20 border-b border-white/10 overflow-hidden z-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 relative z-10 animate-fade-up">
+          <span className="text-[10px] font-mono uppercase tracking-[0.35em] text-[#E8B29A] bg-[#E8B29A]/10 border border-white/10 px-3 py-1 rounded-full inline-block font-semibold">THE VALARA JOURNAL</span>
+          <h1 className="font-serif text-4xl sm:text-5xl font-light tracking-tight text-white">Valara Blog</h1>
+          <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto leading-relaxed font-sans font-light">
             Lifestyle tips, compounding updates, nutrition guides, and operational updates from our wellness coordinators.
           </p>
         </div>
       </section>
 
       {/* Grid List */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 animate-fade-up relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {MOCK_BLOG_POSTS.map((post) => (
             <div 
               key={post.slug}
-              className="bg-[#EFE8DA]/25 border border-[#E2D9C7] rounded-3xl p-6 flex flex-col justify-between min-h-[260px] hover:border-[#B89968] transition-all"
+              className="glass-panel-dark rounded-3xl p-6 flex flex-col justify-between min-h-[260px] hover-lift border border-white/10 glow-peach-glow shadow-lg"
             >
               <div>
-                <div className="flex justify-between items-center text-[10px] text-[#2A2520]/60 uppercase font-bold tracking-wider mb-3">
-                  <span className="text-[#B89968] bg-[#B89968]/10 px-2 py-0.5 rounded-full">{post.category}</span>
-                  <span className="flex items-center gap-1 font-medium"><Clock className="h-3 w-3" /> {post.readTime}</span>
+                <div className="flex justify-between items-center text-[10px] uppercase font-bold tracking-wider mb-4">
+                  <span className="text-[#E8B29A] bg-[#E8B29A]/10 border border-[#E8B29A]/20 px-2.5 py-1 rounded-full font-sans">{post.category}</span>
+                  <span className="flex items-center gap-1 font-mono text-white/40"><Clock className="h-3 w-3" /> {post.readTime}</span>
                 </div>
 
-                <h3 className="font-serif text-lg font-bold text-[#2A2520] hover:text-[#B89968] transition-colors mb-2">
+                <h3 className="font-serif text-lg font-semibold text-white group-hover:text-[#E8B29A] hover:text-[#E8B29A] transition-colors mb-2">
                   <Link href={`/blog/${post.slug}`}>
                     {post.title}
                   </Link>
                 </h3>
-                <p className="text-xs text-[#2A2520]/70 leading-relaxed font-sans line-clamp-3 mb-4">
+                <p className="text-xs text-white/70 leading-relaxed font-sans font-light line-clamp-3 mb-4">
                   {post.summary}
                 </p>
               </div>
 
-              <div className="border-t border-[#E2D9C7]/50 pt-4 flex justify-between items-center text-[10px] text-[#2A2520]/50 font-sans">
+              <div className="border-t border-white/10 pt-4 flex justify-between items-center text-[10px] text-white/40 font-sans">
                 <span>{post.date}</span>
                 <Link 
                   href={`/blog/${post.slug}`} 
-                  className="text-[#8E7449] hover:underline font-semibold flex items-center gap-0.5 uppercase tracking-wider"
+                  className="text-white hover:text-[#E8B29A] font-bold flex items-center gap-0.5 uppercase tracking-wider transition-colors"
                 >
-                  Read Post <ChevronRight className="h-3 w-3" />
+                  Read Post <ChevronRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>

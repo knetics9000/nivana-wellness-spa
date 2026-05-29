@@ -1,0 +1,2 @@
+=== STEP 774 (multi_replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\page.tsx ===
+Instruction: "Modify page.tsx to render the hero background image and product mockups on the featured peptide cards."

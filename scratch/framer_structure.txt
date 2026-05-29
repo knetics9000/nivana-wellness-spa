@@ -1,0 +1,24 @@
+=== COLOR TOKENS ===
+#fff
+#1a1a1a
+#ffffffb3
+#0000001a
+#0f0f0f
+#000000a6
+#ffffff0d
+#f3e5ce99
+#ebebeb
+#0000004d
+#575757
+#fafafa
+#000
+#ebd4ad
+#00000080
+#ffffff1a
+#292929
+#fff6
+#0003
+#ffbc6a
+#f7ead4
+
+=== VISIBLE TAGS AND TEXTS ===

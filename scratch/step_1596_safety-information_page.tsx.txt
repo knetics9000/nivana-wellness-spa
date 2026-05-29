@@ -1,0 +1,8 @@
+=== STEP 1596 (replace_file_content) targeting c:/Users/WOLF/Documents/Peptide Wellness Project/src/app/safety-information/page.tsx ===
+Instruction: "Remove line 131 which contains the extra duplicate closing div tag."
+StartLine: 128
+EndLine: 134
+TargetContent:
+"      </section>\n    </div>\n    </div>\n  );\n}"
+ReplacementContent:
+"      </section>\n    </div>\n  );\n}"

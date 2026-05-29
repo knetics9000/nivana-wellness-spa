@@ -1,0 +1,8 @@
+=== STEP 151 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\intake\\page.tsx ===
+Instruction: "Replace the enum validations for hasThyroidCancerHistory, isPregnantOrLactating, and hasActiveKidneyIssues with standard required_error and invalid_type_error arguments."
+StartLine: 32
+EndLine: 42
+TargetContent:
+"  hasThyroidCancerHistory: z.enum([\"yes\", \"no\"], { errorMap: () => ({ message: \"Please select an option\" }) }),\n  isPregnantOrLactating: z.enum([\"yes\", \"no\"], { errorMap: () => ({ message: \"Please select an option\" }) }),\n  hasActiveKidneyIssues: z.enum([\"yes\", \"no\"], { errorMap: () => ({ message: \"Please select an option\" }) }),"
+ReplacementContent:
+"  hasThyroidCancerHistory: z.enum([\"yes\", \"no\"], { required_error: \"Please select an option\", invalid_type_error: \"Please select an option\" }),\n  isPregnantOrLactating: z.enum([\"yes\", \"no\"], { required_error: \"Please select an option\", invalid_type_error: \"Please select an option\" }),\n  hasActiveKidneyIssues: z.enum([\"yes\", \"no\"], { required_error: \"Please select an option\", invalid_type_error: \"Please select an option\" }),"

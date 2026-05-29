@@ -1,0 +1,10 @@
+=== ASSETS FOR CONVERSATION bcf47e86-9459-4c38-b3de-fcadf797a7b4 ===
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\bpc_157_1779391639012.png (614062 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\media__1779569707426.png (101817 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\media__1779569908554.png (106386 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\media__1779574133747.png (173545 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\media__1779574961965.png (266034 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\nad_plus_1779391658393.png (577711 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\semaglutide_1779391619493.png (665287 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\serum_vial_hero_1779391252132.png (610475 bytes)
+- brain\bcf47e86-9459-4c38-b3de-fcadf797a7b4\testosterone_cyp_1779391674354.png (658253 bytes)

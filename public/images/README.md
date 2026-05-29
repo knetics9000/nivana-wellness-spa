@@ -1,6 +1,6 @@
-# Nivana Wellness Spa — Image Asset Directory & Sourcing Guide
+# Valera Wellness Spa — Image Asset Directory & Sourcing Guide
 
-This folder holds all public assets for the Nivana website. Since this is a premium, high-converting telehealthmedspa brand, all sourced images must feel clean, bright, and spa-luxe (warm neutrals, gold highlights, marble, serum vials, linen). 
+This folder holds all public assets for the Valera website. Since this is a premium, high-converting telehealthmedspa brand, all sourced images must feel clean, bright, and spa-luxe (warm neutrals, gold highlights, marble, serum vials, linen). 
 
 Avoid aggressive bodybuilding, neon gym, or clinical-cold clinic imagery.
 

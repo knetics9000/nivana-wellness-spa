@@ -223,10 +223,10 @@ An IM injection delivers the compound directly into the vascular tissue of a ske
       "IGF-1 levels must be measured before and during GH secretagogue protocols to prevent excess growth signaling.",
       "HbA1c and fasting insulin track changes in glucose sensitivity from metabolic peptides.",
       "Liver (AST/ALT) and kidney (Creatinine/eGFR) panels confirm healthy organ clearance.",
-      "Nivana physicians require follow-up bloodwork panels every 6 months to adjust dosages safely."
+      "Valara physicians require follow-up bloodwork panels every 6 months to adjust dosages safely."
     ],
     content: `
-At Nivana Wellness Spa, we do not practice checkbox medicine. Peptide therapy is a clinical intervention that directly affects endocrine pathways, cellular regeneration, and metabolic rates. To ensure safety and maximize efficacy, we require comprehensive diagnostic blood panels prior to initiating major protocols.
+At Valara Wellness Spa, we do not practice checkbox medicine. Peptide therapy is a clinical intervention that directly affects endocrine pathways, cellular regeneration, and metabolic rates. To ensure safety and maximize efficacy, we require comprehensive diagnostic blood panels prior to initiating major protocols.
 
 ### Critical Biomarkers to Monitor
 
@@ -257,7 +257,7 @@ When designing a customized peptide protocol, our medical team reviews several k
       "Compounded peptides are prepared under strict state and federal pharmacy regulations.",
       "503A compounding pharmacies dispense patient-specific prescriptions under USP sterile compounding standards.",
       "Every batch of clinical-grade peptides requires a Certificate of Analysis (CoA) to verify purity and sterility.",
-      "Nivana works exclusively with US-based, accredited 503A compounding pharmacies."
+      "Valara works exclusively with US-based, accredited 503A compounding pharmacies."
     ],
     content: `
 The popularity of peptide therapy has led to an increase in online suppliers selling vial powders labeled "For Research Use Only" or "Not for Human Consumption." Understanding the difference between these gray-market research chemicals and clinical-grade compounded prescriptions is vital for your health and safety.
@@ -271,12 +271,12 @@ Research peptides are sold by companies that bypass FDA regulations, pharmacy li
 
 ### Clinical-Grade Compounded Peptides
 
-Nivana Wellness Spa works exclusively with accredited compounding pharmacies in the United States. These pharmacies operate under two regulatory frameworks:
+Valara Wellness Spa works exclusively with accredited compounding pharmacies in the United States. These pharmacies operate under two regulatory frameworks:
 
 * **503A Compounding Pharmacies.** These facilities prepare custom medications for specific patients under state board oversight and federal USP <797> sterile compounding regulations.
 * **Purity Testing.** Every compound batch undergoes HPLC (High-Performance Liquid Chromatography) testing to confirm identity and purity, alongside endotoxin and sterility testing.
 
-When you receive a protocol from Nivana, your medication vial is labeled with your name, a prescription number, the name of the compounding pharmacy, the exact concentration, and a verified expiration date.
+When you receive a protocol from Valara, your medication vial is labeled with your name, a prescription number, the name of the compounding pharmacy, the exact concentration, and a verified expiration date.
 `
   },
   {

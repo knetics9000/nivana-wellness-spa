@@ -9,15 +9,13 @@ import {
   ArrowRight, 
   CheckCircle2, 
   AlertOctagon, 
-  HelpCircle, 
-  Sparkles,
   Info,
   Calendar,
   Layers,
   ThermometerSnowflake,
   ChevronRight
 } from "lucide-react";
-import { getProductBySlug, getCategoryBySlug, getProductsByCategory, PRODUCTS } from "@/data/products";
+import { getProductBySlug, getCategoryBySlug, getProductsByCategory } from "@/data/products";
 import SafetyModal from "@/components/SafetyModal";
 
 interface PageProps {
@@ -43,142 +41,179 @@ export default function ProductDetailPage({ params }: PageProps) {
   const isGLP1 = product.id === "semaglutide" || product.id === "tirzepatide";
 
   return (
-    <div className="bg-[#F8F4EC] min-h-screen pb-24 font-sans text-[#2A2520] animate-fade-up">
+    <div className="min-h-screen pb-24 font-sans text-[#F7F2EC] relative z-0 animate-fade-up selection:bg-[#E8B29A]/30">
+      
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full -z-20 bg-[#0B0A09]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-15"
+        >
+          <source src="/videos/woman_serum_ritual.mp4" type="video/mp4" />
+        </video>
+      </div>
+      {/* Soft color overlays */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0A09] via-[#0B0A09]/95 to-[#E8B29A]/10 -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B0A09]/50 to-[#0B0A09] -z-10"></div>
+
       {/* Top breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link 
           href="/treatments" 
-          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#8E7449] hover:text-[#B89968] transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-white hover:text-[#E8B29A] transition-colors underline underline-offset-4 decoration-[#E8B29A] decoration-2"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Master Catalog
         </Link>
       </div>
 
       {/* Main product overview */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+        
         {/* Left Column: Primary clinical info */}
         <div className="lg:col-span-8 space-y-8">
           
           {/* Header Title Block */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#B89968]">
-                {category?.name || product.category}
-              </span>
-              <span className="text-[#E2D9C7] text-sm">|</span>
-              <span className="text-xs text-[#2A2520]/60 font-sans font-medium uppercase tracking-wider">
-                {product.administration}
-              </span>
-            </div>
-            
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2A2520]">
-              {product.name}
-            </h1>
-            
-            <p className="text-base sm:text-lg text-[#8E7449] italic font-serif">
-              &ldquo;{product.tagline}&rdquo;
-            </p>
-          </div>
+          {(() => {
+            const hasImage = ["semaglutide", "bpc-157", "nad-plus", "testosterone-cypionate"].includes(product.id);
+            return (
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-white/10 pb-8">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#8FA89B] font-semibold">
+                      {category?.name || product.category}
+                    </span>
+                    <span className="text-white/20 text-sm">|</span>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-white/50">
+                      {product.administration}
+                    </span>
+                  </div>
+                  
+                  <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white">
+                    {product.name}
+                  </h1>
+                  
+                  <p className="text-base sm:text-lg text-[#E8B29A] italic font-serif">
+                    &ldquo;{product.tagline}&rdquo;
+                  </p>
+                </div>
+
+                {hasImage && (
+                  <div className="w-full md:w-48 h-48 relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 p-4 shrink-0 shadow-lg flex items-center justify-center">
+                    <img 
+                      src={`/images/products/${product.id}.png`}
+                      alt={product.name}
+                      className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })()}
 
           {/* Clinical summary card */}
-          <div className="bg-[#EFE8DA]/40 border border-[#E2D9C7] rounded-3xl p-6 sm:p-8 space-y-4">
-            <h2 className="text-xs uppercase tracking-widest text-[#B89968] font-bold">Clinical Overview</h2>
-            <p className="text-sm sm:text-base leading-relaxed text-[#2A2520]/90">
+          <div className="glass-panel-dark rounded-3xl p-6 sm:p-8 space-y-4 shadow-lg border border-white/10">
+            <h2 className="text-[10px] font-mono uppercase tracking-widest text-[#E8B29A] font-bold">[ CLINICAL OVERVIEW ]</h2>
+            <p className="text-sm sm:text-base leading-relaxed text-white/80 font-sans font-light">
               {product.description}
             </p>
           </div>
 
           {/* Mechanism of action */}
           <div className="space-y-3 pt-4">
-            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2A2520]">Mechanism of Action</h2>
-            <p className="text-sm sm:text-base leading-relaxed text-[#2A2520]/80 font-sans">
+            <h2 className="font-serif text-2xl font-light text-white">Mechanism of Action</h2>
+            <p className="text-sm sm:text-base leading-relaxed text-white/70 font-sans font-light">
               {product.mechanism}
             </p>
           </div>
 
           {/* Benefits bullets list */}
           <div className="space-y-4 pt-4">
-            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#2A2520]">Key Benefits & Outcomes</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <h2 className="font-serif text-2xl font-light text-white">Key Benefits &amp; Outcomes</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {product.benefits.map((benefit, i) => (
-                <div key={i} className="flex gap-2.5 items-start p-3 bg-[#EFE8DA]/25 rounded-xl border border-[#E2D9C7]/30">
-                  <CheckCircle2 className="h-4 w-4 text-[#B89968] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#2A2520]/80 leading-relaxed font-sans">{benefit}</span>
+                <div key={i} className="flex gap-3 items-start p-4 glass-panel-dark rounded-2xl border border-white/10 hover-lift">
+                  <CheckCircle2 className="h-4.5 w-4.5 text-[#8FA89B] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-white/85 leading-relaxed font-sans font-light">{benefit}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Suitability guidelines */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-[#E2D9C7]/50">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/10">
             {/* Who it's for */}
-            <div className="space-y-2.5">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#B89968]">Clinical Suitability</h3>
-              <p className="text-xs text-[#2A2520]/60 font-sans">Who this protocol is generally designed for:</p>
-              <p className="text-sm text-[#2A2520]/80 leading-relaxed bg-[#F8F4EC] border border-[#E2D9C7] p-4 rounded-xl font-sans">
+            <div className="space-y-3">
+              <h3 className="text-[10px] font-mono uppercase tracking-widest text-[#8FA89B] font-bold">[ CLINICAL SUITABILITY ]</h3>
+              <div className="text-sm text-white/80 leading-relaxed glass-panel-dark p-5 rounded-2xl border border-white/10 font-sans font-light min-h-[140px]">
                 {product.whoItsFor}
-              </p>
+              </div>
             </div>
 
             {/* Who it's not for */}
-            <div className="space-y-2.5">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#8E7449]">Contraindications & Exclusion</h3>
-              <p className="text-xs text-[#2A2520]/60 font-sans">Who should exclude this therapy:</p>
-              <p className="text-sm text-[#2A2520]/80 leading-relaxed bg-[#F8F4EC] border border-[#E2D9C7] p-4 rounded-xl font-sans">
+            <div className="space-y-3">
+              <h3 className="text-[10px] font-mono uppercase tracking-widest text-[#E8B29A] font-bold">[ CONTRAINDICATIONS &amp; EXCLUSION ]</h3>
+              <div className="text-sm text-white/90 leading-relaxed bg-[#E8B29A]/5 border border-[#E8B29A]/30 p-5 rounded-2xl font-sans font-light min-h-[140px]">
                 {product.whoItsNotFor}
-              </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Right Column: Custom patient dashboard / Dosing details / Call to Action */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-[#EFE8DA]/60 border border-[#E2D9C7] rounded-3xl p-6 shadow-sm space-y-6 sticky top-24">
+          <div className="glass-panel-dark rounded-3xl p-6 sticky top-24 space-y-6 shadow-xl border border-white/10">
             
             {/* Dosing Info Header */}
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#B89968] block mb-1">Therapeutic Dosing</span>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 block mb-1">Therapeutic Dosing</span>
               <div className="flex justify-between items-baseline">
-                <span className="font-serif text-2xl font-bold text-[#2A2520]">Clinical Protocol</span>
-                <span className="text-xs text-[#2A2520]/50 font-sans">Prescription Required</span>
+                <span className="font-serif text-2xl font-light text-white">Clinical Protocol</span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#8FA89B] font-bold">[ Rx ONLY ]</span>
               </div>
             </div>
 
-            {/* Dosing Details list */}
-            <div className="space-y-3.5 border-t border-b border-[#E2D9C7]/60 py-5 text-xs text-[#2A2520]/85">
-              <div className="flex justify-between items-center">
-                <span className="text-[#2A2520]/65 flex items-center gap-1.5"><Layers className="h-4 w-4 text-[#B89968]" /> Route</span>
-                <span className="font-semibold text-right">{product.administration}</span>
-              </div>
-              <div className="flex justify-between items-start">
-                <span className="text-[#2A2520]/65 flex items-center gap-1.5"><Calendar className="h-4 w-4 text-[#B89968]" /> Dosing Schedule</span>
-                <span className="font-semibold text-right max-w-[150px] leading-tight">{product.protocol}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-[#2A2520]/65 flex items-center gap-1.5"><ThermometerSnowflake className="h-4 w-4 text-[#B89968]" /> Storage</span>
-                <span className="font-semibold text-right">Refrigerate on arrival</span>
-              </div>
+            {/* Dosing Details Table */}
+            <div className="border border-white/10 rounded-2xl overflow-hidden bg-black/20 my-4 font-sans text-xs">
+              <table className="w-full text-left border-collapse">
+                <tbody>
+                  <tr className="border-b border-white/10">
+                    <td className="p-4 font-medium text-white/50 flex items-center gap-1.5"><Layers className="h-4 w-4 text-white/50" /> Route</td>
+                    <td className="p-4 text-white font-semibold text-right bg-white/5">{product.administration}</td>
+                  </tr>
+                  <tr className="border-b border-white/10">
+                    <td className="p-4 font-medium text-white/50 flex items-center gap-1.5"><Calendar className="h-4 w-4 text-white/50" /> Dosing Schedule</td>
+                    <td className="p-4 text-white font-semibold text-right bg-white/5 max-w-[150px] leading-tight">{product.protocol}</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-white/50 flex items-center gap-1.5"><ThermometerSnowflake className="h-4 w-4 text-white/50" /> Storage</td>
+                    <td className="p-4 text-white font-semibold text-right bg-white/5">Refrigerate on arrival</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
             {/* Telehealth Call to Action button */}
             <div className="space-y-3">
               <Link
                 href="/intake"
-                className="w-full text-center block py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#B89968] text-[#F8F4EC] hover:bg-[#8E7449] transition-all shadow-md flex items-center justify-center gap-1.5"
+                className="w-full text-center block py-3.5 rounded-full text-xs font-bold uppercase tracking-widest bg-[#E8B29A] text-[#0B0A09] hover:bg-white hover:text-[#0B0A09] transition-all duration-300 shadow-md flex items-center justify-center gap-1.5 font-mono"
               >
                 Start Free Assessment <ArrowRight className="h-4.5 w-4.5" />
               </Link>
               <button
                 onClick={() => setSafetyOpen(true)}
-                className="w-full text-center block py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-[#B89968] text-[#8E7449] hover:bg-[#B89968]/5 transition-all flex items-center justify-center gap-1.5"
+                className="w-full text-center block py-3.5 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 text-white bg-transparent hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-1.5 font-mono"
               >
-                <ShieldAlert className="h-4.5 w-4.5" /> Important Safety Info
+                <ShieldAlert className="h-4.5 w-4.5 text-white/70" /> Important Safety Info
               </button>
             </div>
 
             {/* Official FDA Compounding Disclaimer */}
-            <div className="bg-[#F8F4EC] border border-[#E2D9C7]/75 rounded-2xl p-4 flex gap-2.5 text-[10px] text-[#2A2520]/75 leading-relaxed font-sans">
-              <Info className="h-4.5 w-4.5 text-[#B89968] shrink-0 mt-0.5" />
+            <div className="bg-black/30 border border-white/10 rounded-2xl p-4 flex gap-2.5 text-[10px] text-white/50 leading-relaxed font-sans shadow-sm">
+              <Info className="h-4.5 w-4.5 text-[#8FA89B] shrink-0 mt-0.5" />
               <p>
                 This medication is compounded by a licensed U.S. pharmacy and prescribed only after physician review. Compounded medications have not been FDA-reviewed for safety, effectiveness, or quality. FDA-approved alternatives may be available for some indications. Please review the Important Safety Information for this treatment before beginning.
               </p>
@@ -186,11 +221,11 @@ export default function ProductDetailPage({ params }: PageProps) {
 
             {/* GLP-1 Black box warning if weight-loss GLP-1 */}
             {isGLP1 && (
-              <div className="bg-[#C9A695]/10 border border-[#C9A695]/45 rounded-2xl p-4 flex gap-2.5 text-[10px] text-[#2A2520]/80 leading-relaxed font-sans">
-                <AlertOctagon className="h-5 w-5 text-[#C9A695] shrink-0 mt-0.5" />
+              <div className="bg-[#E8B29A]/5 border border-[#E8B29A]/30 rounded-2xl p-4 flex gap-2.5 text-[10px] text-white/80 leading-relaxed font-sans shadow-lg">
+                <AlertOctagon className="h-5 w-5 text-[#E8B29A] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold block text-[#C9A695] uppercase tracking-wider mb-1">GLP-1 Boxed Warning</span>
-                  <p>
+                  <span className="font-bold block text-[#E8B29A] uppercase tracking-widest mb-1 font-mono">[ GLP-1 BOXED WARNING ]</span>
+                  <p className="opacity-90 leading-relaxed">
                     GLP-1 medications are contraindicated in individuals with a personal or family history of medullary thyroid carcinoma or Multiple Endocrine Neoplasia syndrome type 2. Stop use and contact your physician immediately if you develop a lump or swelling in your neck, difficulty swallowing, hoarseness, severe abdominal pain that does not resolve, or symptoms of a serious allergic reaction. Do not use if pregnant, trying to become pregnant, or breastfeeding.
                   </p>
                 </div>
@@ -203,10 +238,12 @@ export default function ProductDetailPage({ params }: PageProps) {
 
       {/* Related Products / Stacks recommendation */}
       {relatedPeptides.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 border-t border-[#E2D9C7]/50 pt-16">
-          <div className="max-w-2xl mb-10">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#B89968] block mb-1">Synergistic Protocols</span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2A2520]">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 border-t border-white/10 pt-16 relative z-10">
+          <div className="max-w-2xl mb-12">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#8FA89B] font-bold block mb-1">
+              [ SYNERGISTIC PROTOCOLS ]
+            </span>
+            <h2 className="font-serif text-3xl font-light text-white">
               Peptides that stack well in this category
             </h2>
           </div>
@@ -216,14 +253,14 @@ export default function ProductDetailPage({ params }: PageProps) {
               <Link 
                 key={rp.id}
                 href={`/treatments/${rp.slug}`}
-                className="bg-[#EFE8DA]/30 border border-[#E2D9C7] rounded-2xl p-6 hover-lift transition-all flex flex-col justify-between"
+                className="glass-panel-dark rounded-3xl p-6 hover:border-[#E8B29A]/40 border border-white/10 transition-all duration-300 flex flex-col justify-between group hover-lift shadow-lg glow-peach-glow"
               >
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-[#2A2520] mb-1">{rp.name}</h3>
-                  <p className="text-xs text-[#8E7449] italic mb-3">&ldquo;{rp.tagline}&rdquo;</p>
-                  <p className="text-xs text-[#2A2520]/75 line-clamp-3 leading-relaxed font-sans">{rp.description}</p>
+                  <h3 className="font-serif text-lg font-semibold text-white group-hover:text-[#E8B29A] transition-colors mb-1">{rp.name}</h3>
+                  <p className="text-xs text-[#E8B29A]/70 italic mb-3 font-serif">&ldquo;{rp.tagline}&rdquo;</p>
+                  <p className="text-xs text-white/60 line-clamp-3 leading-relaxed font-sans font-light">{rp.description}</p>
                 </div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[#B89968] mt-6 flex items-center gap-0.5">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-white mt-6 flex items-center gap-0.5 group-hover:text-[#E8B29A] transition-colors font-mono">
                   View stack properties <ChevronRight className="h-3.5 w-3.5" />
                 </span>
               </Link>

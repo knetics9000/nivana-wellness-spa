@@ -1,0 +1,8 @@
+=== STEP 155 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\intake\\page.tsx ===
+Instruction: "Replace the required_error and invalid_type_error params inside the Zod enum definitions with the message property."
+StartLine: 32
+EndLine: 42
+TargetContent:
+"  hasThyroidCancerHistory: z.enum([\"yes\", \"no\"], { required_error: \"Please select an option\", invalid_type_error: \"Please select an option\" }),\n  isPregnantOrLactating: z.enum([\"yes\", \"no\"], { required_error: \"Please select an option\", invalid_type_error: \"Please select an option\" }),\n  hasActiveKidneyIssues: z.enum([\"yes\", \"no\"], { required_error: \"Please select an option\", invalid_type_error: \"Please select an option\" }),"
+ReplacementContent:
+"  hasThyroidCancerHistory: z.enum([\"yes\", \"no\"], { message: \"Please select an option\" }),\n  isPregnantOrLactating: z.enum([\"yes\", \"no\"], { message: \"Please select an option\" }),\n  hasActiveKidneyIssues: z.enum([\"yes\", \"no\"], { message: \"Please select an option\" }),"

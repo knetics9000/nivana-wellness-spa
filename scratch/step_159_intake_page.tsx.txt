@@ -1,0 +1,8 @@
+=== STEP 159 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\intake\\page.tsx ===
+Instruction: "Update the weight validation in the intakeSchema to be a string check with parseFloat and refine."
+StartLine: 24
+EndLine: 32
+TargetContent:
+"  weight: z.coerce.number().min(80, \"Please enter a valid weight in pounds\"),"
+ReplacementContent:
+"  weight: z.string().refine(\n    (val) => {\n      const num = parseFloat(val);\n      return !isNaN(num) && num >= 80;\n    },\n    { message: \"Please enter a valid weight in pounds (minimum 80 lbs)\" }\n  ),"

@@ -1,0 +1,8 @@
+=== STEP 504 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\treatments\\page.tsx ===
+Instruction: "Replace Nivana treatment and physician consultation copy with PharmacellRx eligibility clearance reference."
+StartLine: 41
+EndLine: 48
+TargetContent:
+"          <span className=\"text-xs font-semibold uppercase tracking-widest text-[#B89968]\">Master Treatment Catalog</span>\n          <h1 className=\"font-serif text-4xl sm:text-5xl font-bold tracking-tight\">\n            Explore our clinical protocols.\n          </h1>\n          <p className=\"text-sm sm:text-base text-[#2A2520]/75 max-w-xl mx-auto leading-relaxed\">\n            Every Nivana treatment requires a board-certified physician consultation. Select a compound to review its mechanism, benefits, typical dosing, and safety warnings.\n          </p>"
+ReplacementContent:
+"          <span className=\"text-xs font-semibold uppercase tracking-widest text-[#B89968]\">Master Treatment Catalog</span>\n          <h1 className=\"font-serif text-4xl sm:text-5xl font-bold tracking-tight\">\n            Explore our clinical protocols.\n          </h1>\n          <p className=\"text-sm sm:text-base text-[#2A2520]/75 max-w-xl mx-auto leading-relaxed\">\n            All PharmacellRx orders are subject to medical suitability clearance by our affiliate U.S. physician network. Select a compound to review its mechanism, benefits, typical dosing, and safety warnings.\n          </p>"

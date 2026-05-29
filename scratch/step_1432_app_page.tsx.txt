@@ -1,0 +1,2 @@
+=== STEP 1432 (multi_replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\page.tsx ===
+Instruction: "Change theme to bg-[#0A0A0C] and text-[#F0EEE9], and convert home section 1 (cards), section 2 (trust strip), and section 3 (how it works) to dark mode classes."

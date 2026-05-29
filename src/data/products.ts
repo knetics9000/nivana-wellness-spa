@@ -125,9 +125,9 @@ export const PRODUCTS: Product[] = [
   {
     id: "semaglutide",
     slug: "semaglutide",
-    name: "Semaglutide (GLP-1)",
+    name: "SEMA-X (GLP-1)",
     category: "weight-loss",
-    tagline: "Precision metabolic optimization and appetite control.",
+    tagline: "Precision metabolic optimization and appetite control. (Metabolic 03)",
     description: "A once-weekly glucagon-like peptide-1 (GLP-1) receptor agonist that helps regulate insulin secretion, slows gastric emptying, and balances hunger signaling to support body composition goals.",
     mechanism: "Semaglutide acts as a GLP-1 mimetic, binding to receptors in the pancreas and brain. It prompts natural insulin release in response to glucose, reduces glucagon levels, and delays stomach emptying, signaling satiety to the hypothalamus to naturally decrease caloric intake.",
     benefits: [
@@ -211,7 +211,7 @@ export const PRODUCTS: Product[] = [
         "Slowed gastric emptying may affect absorption of oral contraceptives; non-oral backup recommended",
         "Increased risk of low blood sugar when used with other insulin secretagogues"
       ],
-      disclaimer: "This compounded preparation is not FDA-reviewed. Consult your Nivana physician for commercial alternative options."
+      disclaimer: "This compounded preparation is not FDA-reviewed. Consult your Valara physician for commercial alternative options."
     },
     relatedKBSlugs: ["glp1s-explained", "peptide-safety-sourcing"]
   },
@@ -336,7 +336,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "nad-plus",
     slug: "nad-plus",
-    name: "NAD+ (100mg / 250mg / 750mg)",
+    name: "NAD+ (Longevity 02)",
     category: "longevity",
     tagline: "Coenzyme cellular restoration and mitochondrial power.",
     description: "Nicotinamide Adenine Dinucleotide (NAD+) is an essential coenzyme found in all living cells, supporting ATP production, DNA repair, and sirtuin activation.",
@@ -884,6 +884,35 @@ export const PRODUCTS: Product[] = [
     },
     relatedKBSlugs: ["growth-hormone-peptides", "peptide-stacks"]
   },
+  {
+    id: "testosterone-cypionate",
+    slug: "testosterone-cypionate",
+    name: "Testosterone Cypionate",
+    category: "hormonal",
+    tagline: "Clinical support for testosterone optimization.",
+    description: "An esterified form of testosterone designed for intramuscular or subcutaneous administration, providing a sustained release to support healthy male hormone levels.",
+    mechanism: "Binds to androgen receptors, promoting protein synthesis, muscle retention, metabolic regulation, and red blood cell production, helping restore normal male endocrine profiles.",
+    benefits: [
+      "Optimizes serum testosterone levels",
+      "Supports muscle mass retention and strength",
+      "Enhances metabolic rate and energy levels",
+      "Aids in cognitive focus and emotional balance",
+      "Improves recovery times and physical stamina"
+    ],
+    administration: "Subcutaneous / Intramuscular Injection",
+    protocol: "Typically administered once or twice weekly, with dosing customized under physician supervision based on serum lab markers.",
+    whoItsFor: "Men diagnosed with clinical hypogonadism or certified testosterone deficiency seeking physiological restoration.",
+    whoItsNotFor: "Active prostate or breast cancer, elevated hematocrit, uncontrolled congestive heart failure, or those planning fertility in the near term.",
+    price: "$—",
+    safetyInfo: {
+      contraindications: ["Prostate cancer or male breast cancer", "Pregnancy or breastfeeding", "Severe hepatic, renal, or cardiac disease"],
+      warnings: ["Monitor hematocrit, PSA, and serum lipid levels regularly", "May suppress endogenous spermatogenesis"],
+      sideEffects: ["Mild acne", "Water retention", "Localized site discomfort", "Increased red blood cell count"],
+      drugInteractions: ["May increase sensitivity to oral anticoagulants", "May affect insulin requirements in diabetic patients"],
+      disclaimer: "Compounded androgen preparation."
+    },
+    relatedKBSlugs: ["peptide-safety-sourcing", "peptide-stacks"]
+  },
 
   // ==========================
   // RECOVERY / HEALING
@@ -891,7 +920,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "bpc-157",
     slug: "bpc-157",
-    name: "BPC-157",
+    name: "BPC-157 (Recovery 01)",
     category: "recovery",
     tagline: "The healing peptide for tissue and gut repair.",
     description: "A sequence of 15 amino acids derived from human gastric juice, widely utilized to accelerate the healing of tendons, ligaments, muscles, and the digestive tract.",

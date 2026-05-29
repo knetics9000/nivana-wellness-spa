@@ -1,0 +1,5 @@
+- (prefers-color-scheme: dark)
+- (prefers-color-scheme: light)
+- Playfair Display Placeholder
+- Reset is a modern wellness studio helping you restore balance through personalized care, mindful practices, and holistic health services.
+- framer-lib-cursors-host framer-TLSL4 PropertyOverrides framer-k7Iy7 framer-lib-combinedCSSRules framer-KyqwN framer-XDAzo framer-LSFlv framer-Bng5E framer-oGE0G framer-Ayx9W framer-iYYND framer-Y8qhZ framer-OrQD5 framer-ofEMz framer-J2lnT framer-tQ1Dg framer-TEK8q

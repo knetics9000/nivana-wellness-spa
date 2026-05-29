@@ -1,0 +1,41 @@
+=== STEP 898 (multi_replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\page.tsx ===
+Instruction: "Replace static image and background gradient with video background elements in page.tsx."
+Chunks: 2
+--- Chunk 0 (Lines 98 - 104) ---
+TargetContent:
+                {/* Background Hero Image */}
+                <img 
+                  src="/images/hero/serum_vial_hero.png" 
+                  alt="PharmacellRx Serum Vial" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                />
+ReplacementContent:
+                {/* Background Hero Video */}
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                  src="/videos/hero-vial.mp4"
+                />
+--- Chunk 1 (Lines 633 - 636) ---
+TargetContent:
+      {/* 10. PRE-FOOTER CTA & NEWSLETTER */}
+      <section className="bg-[#2A2520] text-[#F8F4EC] py-20 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-[#B89968]/5 blur-3xl -z-10"></div>
+ReplacementContent:
+      {/* 10. PRE-FOOTER CTA & NEWSLETTER */}
+      <section className="bg-[#2A2520] text-[#F8F4EC] py-20 relative overflow-hidden">
+        {/* Background Loop Video */}
+        <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden opacity-10">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover"
+            src="/videos/peptide-skin.mp4"
+          />
+          <div className="absolute inset-0 bg-[#2A2520]/65" />
+        </div>

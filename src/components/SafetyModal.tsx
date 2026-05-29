@@ -135,7 +135,7 @@ export default function SafetyModal({ isOpen, onClose, productName, safetyInfo }
             <div>
               <p className="font-semibold text-[#2A2520]">Reporting Side Effects</p>
               <p className="text-[#2A2520]/75 mt-0.5">
-                If you experience side effects, contact your Nivana care team immediately. You may also report side effects to FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.
+                If you experience side effects, contact your Valara care team immediately. You may also report side effects to FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.
               </p>
             </div>
           </div>

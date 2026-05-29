@@ -1,0 +1,8 @@
+=== STEP 512 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\blog\\page.tsx ===
+Instruction: "Replace Nivana Journal, Nivana Blog, and wellness coordinators description with PharmacellRx counterparts."
+StartLine: 89
+EndLine: 97
+TargetContent:
+"        <div className=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4\">\n          <span className=\"text-xs font-semibold uppercase tracking-widest text-[#B89968]\">The Nivana Journal</span>\n          <h1 className=\"font-serif text-4xl sm:text-5xl font-bold tracking-tight\">Nivana Blog</h1>\n          <p className=\"text-sm sm:text-base text-[#2A2520]/75 max-w-xl mx-auto leading-relaxed\">\n            Lifestyle tips, compounding updates, nutrition guides, and operational updates from our wellness coordinators.\n          </p>\n        </div>"
+ReplacementContent:
+"        <div className=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4\">\n          <span className=\"text-xs font-semibold uppercase tracking-widest text-[#B89968]\">The PharmacellRx Journal</span>\n          <h1 className=\"font-serif text-4xl sm:text-5xl font-bold tracking-tight\">PharmacellRx Blog</h1>\n          <p className=\"text-sm sm:text-base text-[#2A2520]/75 max-w-xl mx-auto leading-relaxed\">\n            Sourcing updates, compounding safety reports, peptide research briefs, and protocol guides.\n          </p>\n        </div>"

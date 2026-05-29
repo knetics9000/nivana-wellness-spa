@@ -1,0 +1,8 @@
+=== STEP 1146 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\blog\\[slug]\\page.tsx ===
+Instruction: "Remove the duplicate closing bracket on line 140."
+StartLine: 137
+EndLine: 142
+TargetContent:
+"  );\n  );\n}"
+ReplacementContent:
+"  );\n}"

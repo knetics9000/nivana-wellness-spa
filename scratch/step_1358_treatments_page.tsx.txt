@@ -1,0 +1,8 @@
+=== STEP 1358 (replace_file_content) targeting c:\\Users\\WOLF\\Documents\\Peptide Wellness Project\\src\\app\\treatments\\page.tsx ===
+Instruction: "Prepend use client directive to treatments/page.tsx."
+StartLine: 1
+EndLine: 3
+TargetContent:
+"import React, { useState, useMemo } from \"react\";\nimport Link from \"next/link\";"
+ReplacementContent:
+"\"use client\";\n\nimport React, { useState, useMemo } from \"react\";\nimport Link from \"next/link\";"

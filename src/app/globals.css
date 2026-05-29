@@ -1,19 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8F4EC;
-  --foreground: #2A2520;
+  --background: #0B0A09;
+  --foreground: #F7F2EC;
 }
 
 @theme {
-  --color-brand-ivory: #F8F4EC;
-  --color-brand-cream: #EFE8DA;
-  --color-brand-espresso: #2A2520;
-  --color-brand-gold: #B89968;
-  --color-brand-gold-deep: #8E7449;
-  --color-brand-sage: #A8B59A;
-  --color-brand-clay: #C9A695;
-  --color-brand-border: #E2D9C7;
+  --color-brand-bone: #F7F2EC;
+  --color-brand-peach: #E8B29A;
+  --color-brand-sage: #8FA89B;
+  --color-brand-clay: #70534B;
+  --color-brand-border: rgba(247, 242, 236, 0.1);
   
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
@@ -28,37 +25,57 @@ body {
   flex-direction: column;
 }
 
-/* Luxury micro-interactions and transitions */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+::selection {
+  background-color: rgba(232, 178, 154, 0.35);
+  color: #FFFFFF;
 }
 
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -8px rgba(42, 37, 32, 0.08);
+/* Frosted Glass Panels (Premium Dark Glass) */
+.glass-panel {
+  background: rgba(18, 16, 15, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid rgba(247, 242, 236, 0.1);
 }
 
-.glow-gold:hover {
-  border-color: #B89968;
-  box-shadow: 0 0 15px rgba(184, 153, 104, 0.15);
+.glass-panel-dark {
+  background: rgba(9, 8, 7, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 0.5px solid rgba(232, 178, 154, 0.15);
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar for Dark Mode */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F4EC;
+  background: #0B0A09;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E2D9C7;
+  background: rgba(247, 242, 236, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B89968;
+  background: #E8B29A;
 }
 
-/* Custom animations */
+/* Luxury micro-interactions and transitions */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  border-color: rgba(112, 83, 75, 0.25);
+  box-shadow: 0 4px 12px rgba(112, 83, 75, 0.04);
+}
+
+.glow-peach:hover {
+  border-color: #E8B29A;
+  box-shadow: 0 0 15px rgba(232, 178, 154, 0.15);
+}
+
 @keyframes pulse-slow {
   0%, 100% {
     opacity: 0.9;
@@ -88,3 +105,76 @@ body {
 .animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@keyframes letter-entry {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.letter-stagger {
+  display: inline-block;
+  opacity: 0;
+  animation: letter-entry 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Cybertech & WebGL Aesthetics Grid / Dots */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(232, 178, 154, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232, 178, 154, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
+}
+
+.cyber-dots {
+  background-image: radial-gradient(rgba(247, 242, 236, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Neon Glows matching brand guidelines */
+.glow-peach-glow:hover {
+  border-color: #E8B29A;
+  box-shadow: 0 0 25px rgba(232, 178, 154, 0.25);
+}
+
+.glow-sage-glow:hover {
+  border-color: #8FA89B;
+  box-shadow: 0 0 25px rgba(143, 168, 155, 0.25);
+}
+
+/* Decorative tech borders for layouts */
+.tech-border {
+  position: relative;
+}
+
+.tech-border::before, .tech-border::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: #E8B29A;
+  border-style: solid;
+  opacity: 0.6;
+}
+
+.tech-border-tl::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.tech-border-tr::after {
+  top: -1px;
+  right: -1px;
+  border-width: 1px 1px 0 0;
+}
+
+
