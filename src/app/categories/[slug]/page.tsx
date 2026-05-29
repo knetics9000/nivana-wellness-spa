@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight, ArrowRight, Activity, HelpCircle } from "lucide-react";
 import { getCategoryBySlug, getProductsByCategory } from "@/data/products";
+import { renderProductImage, getCategoryBadgeLabel } from "../../treatments/page";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -74,69 +75,42 @@ export default function CategoryPage({ params }: PageProps) {
 
         {products.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => {
-              const hasImage = ["semaglutide", "bpc-157", "nad-plus", "testosterone-cypionate"].includes(product.id);
-              return (
-                <div 
+            {products.map((product) => (
+                <Link
                   key={product.id}
-                  className="glass-panel-dark rounded-3xl flex flex-col justify-between min-h-[440px] relative overflow-hidden group border border-white/10 hover:border-[#E8B29A]/50 transition-all duration-300 hover-lift shadow-lg glow-peach-glow"
+                  href={`/treatments/${product.slug}`}
+                  className="group flex flex-col transition-all duration-300 hover-lift mb-8"
                 >
-                  {/* Product Image Header */}
-                  <div className="h-44 w-full relative overflow-hidden bg-white/5 border-b border-white/10 flex items-center justify-center p-4">
-                    {hasImage ? (
-                      <img 
-                        src={`/images/products/${product.id}.png`}
-                        alt={product.name}
-                        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-102"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-tr from-white/5 to-white/10">
-                        <Activity className="h-8 w-8 text-white/20" />
-                      </div>
-                    )}
-                    {/* Floating category badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#E8B29A] bg-[#E8B29A]/10 border border-[#E8B29A]/20 px-2.5 py-1 rounded-full font-sans">
-                        {category.name}
+                  {/* Image Container Card */}
+                  <div className="aspect-[4/3] w-full relative bg-[#121110] border border-[#2A2624] rounded-3xl overflow-hidden flex items-center justify-center p-6 shadow-xl group-hover:border-[#E8B29A]/45 transition-all duration-300">
+                    {/* Badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#F7F2EC] bg-[#1A1917] border border-[#33302E] px-3.5 py-1.5 rounded-full inline-block shadow-sm">
+                        {getCategoryBadgeLabel(product.category)}
                       </span>
+                    </div>
+                    {/* Centered Mockup Image */}
+                    <div className="w-full h-full flex items-center justify-center relative">
+                      {renderProductImage(
+                        product.id, 
+                        product.name, 
+                        product.category, 
+                        "w-3/4 h-3/4 max-w-[200px] max-h-[200px] aspect-square object-cover rounded-2xl shadow-md transition-transform duration-500 group-hover:scale-105"
+                      )}
                     </div>
                   </div>
 
-                  {/* Body Content */}
-                  <div className="p-6 flex-grow flex flex-col justify-between">
-                    <div>
-                      {/* Name */}
-                      <h3 className="font-serif text-xl font-semibold text-white group-hover:text-[#E8B29A] transition-colors mb-1.5">
-                        {product.name}
-                      </h3>
-                      
-                      {/* Tagline */}
-                      <p className="text-xs text-[#E8B29A] italic mb-3 font-serif">
-                        &ldquo;{product.tagline}&rdquo;
-                      </p>
-
-                      {/* Description */}
-                      <p className="text-xs text-white/80 leading-relaxed line-clamp-3 mb-6 font-sans font-light">
-                        {product.description}
-                      </p>
-                    </div>
-
-                    {/* Actions */}
-                    <div className="border-t border-white/10 pt-4 flex justify-between items-center mt-auto">
-                      <span className="text-[11px] font-semibold text-white/60 font-sans">
-                        Route: {product.administration}
-                      </span>
-                      <Link 
-                        href={`/treatments/${product.slug}`}
-                        className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#E8B29A] hover:text-[#0B0A09] text-xs font-semibold uppercase tracking-widest transition-all duration-300 flex items-center gap-0.5 group font-mono"
-                      >
-                        View Protocol <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-                      </Link>
-                    </div>
+                  {/* Metadata underneath */}
+                  <div className="mt-5 px-1 space-y-2">
+                    <h3 className="font-serif text-2xl font-light text-white group-hover:text-[#E8B29A] transition-colors leading-tight">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm md:text-base text-[#C9A695]/90 italic font-serif leading-relaxed">
+                      &ldquo;{product.tagline}&rdquo;
+                    </p>
                   </div>
-                </div>
-              );
-            })}
+                </Link>
+            ))}
           </div>
         ) : (
           <div className="text-center py-24 glass-panel-dark rounded-3xl shadow-lg">

@@ -5,6 +5,77 @@ import Link from "next/link";
 import { Search, ChevronRight, Activity } from "lucide-react";
 import { CATEGORIES, PRODUCTS } from "@/data/products";
 
+export function renderProductImage(productId: string, productName: string, category: string, className?: string) {
+  const directImages = [
+    "semaglutide", 
+    "bpc-157", 
+    "nad-plus", 
+    "testosterone-cypionate", 
+    "tirzepatide", 
+    "tb-500", 
+    "ghk-cu-injectable", 
+    "sermorelin", 
+    "ipamorelin"
+  ];
+  
+  let targetImage = productId;
+
+  if (!directImages.includes(productId)) {
+    // Category-wide photo fallbacks to ensure 100% photographic coverage
+    if (category === "weight-loss") {
+      targetImage = (productId.includes("aod") || productId.includes("fragment")) ? "tirzepatide" : "semaglutide";
+    } else if (category === "recovery") {
+      targetImage = productId.includes("tb") ? "tb-500" : "bpc-157";
+    } else if (category === "longevity") {
+      targetImage = "nad-plus";
+    } else if (category === "hormonal") {
+      targetImage = productId.includes("ipamorelin") ? "ipamorelin" : "sermorelin";
+    } else if (category === "cognitive") {
+      targetImage = "nad-plus";
+    } else if (category === "sexual-wellness") {
+      targetImage = "testosterone-cypionate";
+    } else if (category === "beauty-skin") {
+      targetImage = "ghk-cu-injectable";
+    } else if (category === "bioregulators") {
+      targetImage = "nad-plus";
+    } else {
+      targetImage = "nad-plus";
+    }
+  }
+
+  return (
+    <img
+      src={`/images/products/${targetImage}.png`}
+      alt={productName}
+      className={className || "max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"}
+    />
+  );
+}
+
+export function getCategoryBadgeLabel(category: string) {
+  switch (category) {
+    case "weight-loss":
+      return "METABOLIC";
+    case "longevity":
+      return "ANTI-AGING";
+    case "hormonal":
+      return "HORMONAL";
+    case "recovery":
+      return "RECOVERY";
+    case "cognitive":
+      return "COGNITIVE";
+    case "sexual-wellness":
+      return "SEXUAL WELLNESS";
+    case "beauty-skin":
+      return "BEAUTY & SKIN";
+    case "bioregulators":
+      return "BIOREGULATORS";
+    default:
+      return category.toUpperCase().replace("-", " ");
+  }
+}
+
+
 export default function TreatmentsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -166,66 +237,41 @@ export default function TreatmentsPage() {
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((p) => {
-              const hasImage = ["semaglutide", "bpc-157", "nad-plus", "testosterone-cypionate"].includes(p.id);
-              const isRecovery = p.category === "recovery";
-              const isMetabolic = p.category === "weight-loss";
-              
               return (
-                <div
+                <Link
                   key={p.id}
-                  className={`glass-panel-dark rounded-3xl flex flex-col justify-between min-h-[460px] relative overflow-hidden group hover:border-[#E8B29A]/45 transition-all duration-300 hover-lift shadow-lg ${
-                    isRecovery ? "glow-sage-glow" : "glow-peach-glow"
-                  }`}
+                  href={`/treatments/${p.slug}`}
+                  className="group flex flex-col transition-all duration-300 hover-lift mb-8"
                 >
-                  {/* Product Image Header */}
-                  <div className="h-44 w-full relative overflow-hidden bg-white/5 border-b border-white/10 flex items-center justify-center p-4">
-                    {hasImage ? (
-                      <img 
-                        src={`/images/products/${p.id}.png`}
-                        alt={p.name}
-                        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-102 filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-tr from-white/5 to-transparent">
-                        <Activity className="h-8 w-8 text-[#E8B29A]/30 animate-pulse-slow" />
-                      </div>
-                    )}
-                    {/* Floating category badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-white/10 border border-white/20 px-2.5 py-1 rounded-full font-sans">
-                        {isMetabolic ? "Metabolic" : p.category === "longevity" ? "Anti-Aging" : p.category === "recovery" ? "Recovery" : "Hormonal"}
+                  {/* Image Container Card */}
+                  <div className="aspect-[4/3] w-full relative bg-[#121110] border border-[#2A2624] rounded-3xl overflow-hidden flex items-center justify-center p-6 shadow-xl group-hover:border-[#E8B29A]/45 transition-all duration-300">
+                    {/* Badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#F7F2EC] bg-[#1A1917] border border-[#33302E] px-3.5 py-1.5 rounded-full inline-block shadow-sm">
+                        {getCategoryBadgeLabel(p.category)}
                       </span>
                     </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 flex-grow flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-serif text-xl font-light text-white group-hover:text-[#E8B29A] transition-colors mb-1.5">
-                        {p.name}
-                      </h3>
-                      <p className="text-xs text-[#E8B29A]/75 italic mb-3 font-serif">
-                        &ldquo;{p.tagline}&rdquo;
-                      </p>
-                      <p className="text-xs text-white/70 leading-relaxed line-clamp-3 mb-4 font-sans font-light">
-                        {p.description}
-                      </p>
-                    </div>
-
-                    <div className="space-y-3 mt-auto pt-4 border-t border-white/10">
-                      <div className="flex justify-between text-[11px] text-white/50 font-sans">
-                        <span>Clinical protocol:</span>
-                        <span className="font-medium text-white/80 text-right max-w-[130px] truncate">{p.administration}</span>
-                      </div>
-                      <Link 
-                        href={`/treatments/${p.slug}`}
-                        className="w-full block text-center py-2.5 rounded-full bg-[#E8B29A] text-[#0B0A09] hover:bg-white hover:text-[#0B0A09] text-xs font-bold uppercase tracking-widest transition-all duration-300 font-mono shadow-md"
-                      >
-                        View Protocol Details
-                      </Link>
+                    {/* Centered Mockup Image */}
+                    <div className="w-full h-full flex items-center justify-center relative">
+                      {renderProductImage(
+                        p.id, 
+                        p.name, 
+                        p.category, 
+                        "w-3/4 h-3/4 max-w-[200px] max-h-[200px] aspect-square object-cover rounded-2xl shadow-md transition-transform duration-500 group-hover:scale-105"
+                      )}
                     </div>
                   </div>
-                </div>
+
+                  {/* Metadata underneath */}
+                  <div className="mt-5 px-1 space-y-2">
+                    <h3 className="font-serif text-2xl font-light text-white group-hover:text-[#E8B29A] transition-colors leading-tight">
+                      {p.name}
+                    </h3>
+                    <p className="text-sm md:text-base text-[#C9A695]/90 italic font-serif leading-relaxed">
+                      &ldquo;{p.tagline}&rdquo;
+                    </p>
+                  </div>
+                </Link>
               );
             })}
           </div>

@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { getProductBySlug, getCategoryBySlug, getProductsByCategory } from "@/data/products";
 import SafetyModal from "@/components/SafetyModal";
+import { renderProductImage } from "../page";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -77,7 +78,6 @@ export default function ProductDetailPage({ params }: PageProps) {
           
           {/* Header Title Block */}
           {(() => {
-            const hasImage = ["semaglutide", "bpc-157", "nad-plus", "testosterone-cypionate"].includes(product.id);
             return (
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-white/10 pb-8">
                 <div className="space-y-3">
@@ -100,15 +100,9 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </p>
                 </div>
 
-                {hasImage && (
-                  <div className="w-full md:w-48 h-48 relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 p-4 shrink-0 shadow-lg flex items-center justify-center">
-                    <img 
-                      src={`/images/products/${product.id}.png`}
-                      alt={product.name}
-                      className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
-                    />
-                  </div>
-                )}
+                <div className="w-full md:w-48 h-48 relative rounded-3xl overflow-hidden border border-[#2A2624] bg-[#121110] p-4 shrink-0 shadow-xl flex items-center justify-center">
+                  {renderProductImage(product.id, product.name, product.category, "w-3/4 h-3/4 aspect-square object-cover rounded-xl shadow-md")}
+                </div>
               </div>
             );
           })()}
